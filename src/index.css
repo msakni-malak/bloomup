@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@theme {
+  --font-title: "Playfair Display", serif;
+  --font-sans: "Nunito", sans-serif;
+}
+@layer components {
+  .nav-link {
+    @apply relative py-2 px-10 rounded transition-all duration-300;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 -bottom-1 h-[2px] w-full bg-[#EFEBCE] scale-x-0 origin-left transition-transform duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  .active-link::after {
+    @apply scale-x-100;
+  }
+  .social-icon {
+    @apply transition-transform duration-300;
+  }
+
+  .social-icon:hover {
+    @apply scale-95;
+  }
+
+  .input-box {
+    @apply p-4 rounded-2xl border-2 border-[#B8B396] bg-[#EFEBCE] focus:outline-none focus:ring-2 focus:ring-[#7A8F4D] placeholder-[#7A8F4D]/50;
+  }
+  .card {
+    @apply bg-[#EFEBCE] p-8 rounded-3xl shadow-lg text-center;
+  }
+  .crad-group {
+    @apply max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-20;
+  }
+  .card-title {
+    @apply text-2xl font-bold text-[#4F5D2F] mb-4;
+  }
+  .paragraph {
+    @apply text-[#7A8F4D] leading-relaxed;
+  }
+  .habit-card {
+    @apply bg-white/60 border border-[#c9c3a0] rounded-3xl p-6 flex flex-col gap-3 hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+  }
+  .button-1 {
+    @apply mt-auto w-full py-2 rounded-2xl bg-[#EFE8CE] border-2 border-[#7A8F4D] text-[#4F5D2F] font-bold text-sm hover:bg-[#7A8F4D] hover:text-white transition-all duration-200;
+  }
+  .button-2 {
+    @apply bg-[#7A8F4D] text-[#EFE8CE] rounded-2xl hover:bg-[#5f6f3a] transition font-semibold py-4;
+  }
+  .habit-card-title {
+    @apply text-lg font-bold text-[#4F5D2F] font-title;
+  }
+}

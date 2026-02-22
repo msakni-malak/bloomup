@@ -1,0 +1,77 @@
+{
+  "suggestedHabits": [
+    {
+      "id": "1",
+      "title": "Morning Meditation",
+      "duration": 10,
+      "unit": "min",
+      "icon": "🧘",
+      "category": "Wellness"
+    },
+    {
+      "id": "2",
+      "title": "Read a Book",
+      "duration": 30,
+      "unit": "min",
+      "icon": "📚",
+      "category": "Learning"
+    },
+    {
+      "id": "3",
+      "title": "Evening Walk",
+      "duration": 20,
+      "unit": "min",
+      "icon": "🚶",
+      "category": "Health"
+    },
+    {
+      "id": "4",
+      "title": "Journaling",
+      "duration": 15,
+      "unit": "min",
+      "icon": "📝",
+      "category": "Mindfulness"
+    },
+    {
+      "id": "5",
+      "title": "Stretching",
+      "duration": 10,
+      "unit": "min",
+      "icon": "🌿",
+      "category": "Health"
+    },
+    {
+      "id": "6",
+      "title": "Learn a Language",
+      "duration": 20,
+      "unit": "min",
+      "icon": "🌍",
+      "category": "Learning"
+    }
+  ],
+  "habits": [
+    { "id": 1, "title": "Morning Meditation", "icon": "🧘", "duration": 10, "unit": "min", "days": ["Mon", "Wed", "Fri"], "streak": 5 },
+    { "id": 2, "title": "Study React", "icon": "💻", "duration": 120, "unit": "min", "days": ["Mon", "Tue", "Wed", "Thu", "Fri"], "streak": 3 },
+    { "id": 3, "title": "Drink 2L Water", "icon": "💧", "duration": 5, "unit": "min", "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "streak": 7 }
+  ],
+  "goals": [
+    { "id": 1, "title": "Read 12 Books This Year", "description": "One book per month to grow my knowledge.", "deadline": "2026-12-31", "category": "Learning", "tasks": [{ "id": 1, "title": "Read Atomic Habits", "done": true }, { "id": 2, "title": "Read Deep Work", "done": false }] },
+    { "id": 2, "title": "Run a 5K", "description": "Train consistently and complete my first 5K race.", "deadline": "2026-06-01", "category": "Health", "tasks": [{ "id": 1, "title": "Run 1km", "done": true }, { "id": 2, "title": "Run 3km", "done": true }, { "id": 3, "title": "Run 5km", "done": false }] },
+    { "id": 3, "title": "Launch Portfolio", "description": "Design and deploy my personal portfolio.", "deadline": "2026-04-15", "category": "Work", "tasks": [{ "id": 1, "title": "Design wireframes", "done": true }, { "id": 2, "title": "Build with React", "done": true }, { "id": 3, "title": "Deploy", "done": false }] },
+    {
+  "id": 4,
+  "title": "Build BloomUp App",
+  "description": "Design and develop a full React app with habits, goals, dashboard and profile pages for my web dev training bootcamp.",
+  "deadline": "2026-02-22",
+  "category": "Work",
+  "tasks": [
+    { "id": 1, "title": "Set up React project with Vite", "done": true },
+    { "id": 2, "title": "Build Landing page", "done": true },
+    { "id": 3, "title": "Build Habits page", "done": true },
+    { "id": 4, "title": "Build Goals page", "done": true },
+    { "id": 5, "title": "Build Dashboard", "done": true },
+    { "id": 6, "title": "Build Profile page", "done": true }
+  ]
+    }
+  ]
+}
