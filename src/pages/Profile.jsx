@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
+import LogoutButton from "../components/LogoutButton";
 import { useUser } from "../context/UserContext";
 import { useGoals } from "../hooks/useGoals";
 import { useHabits } from "../hooks/useHabits";
@@ -162,7 +164,9 @@ const Profile = () => {
               </span>
             </div>
           </div>
-
+          <div className="border-t border-[#D7CE93] pt-5 mt-2 flex justify-end">
+            <LogoutButton />
+          </div>
         </div>
       </div>
     </div>

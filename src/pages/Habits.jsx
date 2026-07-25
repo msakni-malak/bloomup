@@ -4,11 +4,13 @@ import SuggestedHabitCard from "../components/SuggestedHabitCard";
 import MyHabitCard from "../components/MyHabitCard";
 import AddHabitModal from "../components/AddHabitModal";
 import { useHabits } from "../hooks/useHabits";
+import ConfirmModal from "../components/ConfirmModal";
 
 const Habits = () => {
-  const { suggestedHabits, habits, loading, error, addHabit, updateStreak } = useHabits();
+  const { suggestedHabits, habits, loading, error, addHabit, checkIn, deleteHabit } = useHabits();
   const [showModal, setShowModal] = useState(false);
   const [prefill, setPrefill] = useState(null);
+  const [habitToDelete, setHabitToDelete] = useState(null);
 
   const handleAddFromSuggestion = useCallback((habit) => {
     setPrefill(habit);
@@ -61,7 +63,7 @@ const Habits = () => {
             <h2 className="text-2xl font-title font-bold text-[#4F5D2F] mb-5">My Habits</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {habits.map(habit => (
-                <MyHabitCard key={habit.id} habit={habit} onStreak={updateStreak} />
+                <MyHabitCard key={habit.id} habit={habit} onCheckIn={checkIn} onDelete={() => setHabitToDelete(habit.id)} />
               ))}
             </div>
           </section>
@@ -83,6 +85,16 @@ const Habits = () => {
           onClose={() => setShowModal(false)}
           onSave={addHabit}
           prefill={prefill}
+        />
+      )}
+      {habitToDelete && (
+        <ConfirmModal
+          message="Uproot this habit? This can't be undone. 🍂"
+          onCancel={() => setHabitToDelete(null)}
+          onConfirm={() => {
+            deleteHabit(habitToDelete);
+            setHabitToDelete(null);
+          }}
         />
       )}
     </div>

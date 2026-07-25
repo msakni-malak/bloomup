@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 export default function AutForm() {
   const navigate = useNavigate();
-  const { setUserName } = useUser();
+  const { login, signup } = useUser();   // au lieu de setUserName
+  const [error, setError] = useState("");
   const [isLogin, setIsLogin] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -21,8 +22,15 @@ export default function AutForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUserName(formData.name);
-    navigate('/dashboard');
+    setError("");
+
+    const action = isLogin
+      ? login(formData.email, formData.password)
+      : signup(formData.email, formData.password, formData.name);
+
+    action
+      .then(() => navigate('/dashboard'))
+      .catch((err) => setError(err.message));
   };
 
   return (
@@ -35,29 +43,28 @@ export default function AutForm() {
         </h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-          
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="input-box"
-            required
-          />
 
           {!isLogin && (
             <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
               onChange={handleChange}
               className="input-box"
               required
             />
-         )}
+          )}
 
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            className="input-box"
+            required
+          />
           <input
             type="password"
             name="password"
@@ -67,7 +74,6 @@ export default function AutForm() {
             className="input-box"
             required
           />
-
           <button
             type="submit"
             className="button-2"
@@ -99,6 +105,7 @@ export default function AutForm() {
             </>
           )}
         </p>
+        {error && <p className="text-[#BB8588] font-bold text-sm text-center">{error}</p>}
       </div>
   );
 }

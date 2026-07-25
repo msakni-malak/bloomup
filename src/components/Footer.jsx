@@ -1,4 +1,4 @@
-import bgfooter from "../assets/bgfooter.png";
+import bgfooter from "../assets/bgFooter.png";
 export default function Footer() {
     return(
         <div className="min-w-screen flex flex-row items-end justify-around bg-cover bg-center bg-no-repeat h-screen px-50 pb-10"
@@ -153,7 +153,7 @@ export default function Footer() {
             </svg>
             <span className="pt-2">@BloomUp</span>
             </a>
-            <h1 className="text-2xl font-title font-bold text-[#4F5D2F] social-icon">Contact Us</h1>
+            
         </div>
     )
 }

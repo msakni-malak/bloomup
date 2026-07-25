@@ -7,6 +7,8 @@ import Goals from "./pages/Goals";
 import Habits from "./pages/Habits";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import { HabitProvider } from "./context/HabitContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -15,23 +17,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <ProtectedRoute><Dashboard /></ProtectedRoute>,
+  },
+  {
+    path: "/dashboard",
+    element: <ProtectedRoute><Dashboard /></ProtectedRoute>,
   },
   {
     path: "/goals",
-    element: <Goals />,
+    element: <ProtectedRoute><Goals /></ProtectedRoute>,
   },
   {
     path: "/goals/:id",
-    element: <Goals />,
+    element: <ProtectedRoute><Goals /></ProtectedRoute>,
   },
   {
     path: "/habits",
-    element: <Habits />,
+    element: <ProtectedRoute><Habits /></ProtectedRoute>,
   },
   {
     path: "/profile",
-    element: <Profile />,
+    element: <ProtectedRoute><Profile /></ProtectedRoute>,
   },
   {
     path: "*",
@@ -43,7 +49,9 @@ function App() {
   return (
     <UserProvider>
       <GoalProvider>
-        <RouterProvider router={router} />
+        <HabitProvider>
+          <RouterProvider router={router} />
+        </HabitProvider>
       </GoalProvider>
     </UserProvider>
   );

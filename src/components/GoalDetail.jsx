@@ -1,26 +1,26 @@
 import { useState } from "react";
+import ConfirmModal from "../components/ConfirmModal";
 const GoalDetail = ({ goal, onBack, onDelete, onUpdateTasks }) => {
-  const [tasks, setTasks] = useState(goal.tasks || []);
+  const tasks = goal.tasks || [];
   const [newTask, setNewTask] = useState("");
+  const [goalToDelete, setGoalToDelete] = useState(null);
+  const [taskToDelete, setTaskToDelete] = useState(null);
   const progress = tasks.length === 0 ? 0 : Math.round((tasks.filter(t => t.done).length / tasks.length) * 100);
   const daysLeft = Math.ceil((new Date(goal.deadline) - new Date()) / (1000 * 60 * 60 * 24));
   const addTask = () => {
     if (!newTask.trim()) return;
     const newTasks = [...tasks, { id: Date.now(), title: newTask, done: false }];
-    setTasks(newTasks);
     onUpdateTasks(goal.id, newTasks);
     setNewTask("");
   };
   
   const toggleTask = (id) => {
     const newTasks = tasks.map(t => t.id === id ? { ...t, done: !t.done } : t);
-    setTasks(newTasks);
     onUpdateTasks(goal.id, newTasks);
   };
   
   const deleteTask = (id) => {
     const newTasks = tasks.filter(t => t.id !== id);
-    setTasks(newTasks);
     onUpdateTasks(goal.id, newTasks);
   };
   return (
@@ -34,11 +34,11 @@ const GoalDetail = ({ goal, onBack, onDelete, onUpdateTasks }) => {
     ← Back to Goals
   </button>
   <button
-      onClick={() => { onDelete(goal.id); onBack(); }}
-      className="absolute top-8 right-8 px-6 py-3 rounded-2xl bg-white/10 text-[#EFEBCE] font-bold hover:bg-white/20 transition border border-white/20"
-    >
-      🗑️ Delete Goal
-    </button>
+    onClick={() => setGoalToDelete(goal.id)}
+    className="absolute top-8 right-8 px-6 py-3 rounded-2xl bg-white/10 text-[#EFEBCE] font-bold hover:bg-white/20 transition border border-white/20"
+  >
+    🗑️ Delete Goal
+  </button>
   <div className="flex flex-col items-center text-center gap-4">
     <span className="text-xs font-bold uppercase tracking-widest text-[#EFEBCE]/70 bg-white/20 px-4 py-1 rounded-full">
       {goal.category}
@@ -83,12 +83,33 @@ const GoalDetail = ({ goal, onBack, onDelete, onUpdateTasks }) => {
                   {task.done && "✓"}
                 </button>
                 <span className={`flex-1 text-sm font-medium ${task.done ? "line-through text-[#A3A380]" : "text-[#4F5D2F]"}`}>{task.title}</span>
-                <button onClick={() => deleteTask(task.id)} className="text-[#BB8588] hover:text-[#a06060] text-xs font-bold">✕</button>
+                <button onClick={() => setTaskToDelete(task.id)} className="text-[#BB8588] hover:text-[#a06060] text-xs font-bold">✕</button>
               </div>
             ))}
           </div>
         </div>
       </div>
+      {goalToDelete && (
+        <ConfirmModal
+          message="Let this goal wither? This can't be undone. 🍂"
+          onCancel={() => setGoalToDelete(null)}
+          onConfirm={() => {
+            onDelete(goalToDelete);
+            setGoalToDelete(null);
+            onBack();
+          }}
+        />
+      )}
+      {taskToDelete && (
+        <ConfirmModal
+          message="Remove this task from your garden? This can't be undone. 🌿"
+          onCancel={() => setTaskToDelete(null)}
+          onConfirm={() => {
+            deleteTask(taskToDelete);
+            setTaskToDelete(null);
+          }}
+        />
+      )}
     </div>
   );
 };
