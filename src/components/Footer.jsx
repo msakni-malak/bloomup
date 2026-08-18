@@ -1,9 +1,22 @@
 import bgfooter from "../assets/bgFooter.png";
+import SocialLinks from "./SocialLinks";
+
 export default function Footer() {
     return(
-        <div className="min-w-screen flex flex-row items-end justify-around bg-cover bg-center bg-no-repeat h-screen px-50 pb-10"
-        style={{ backgroundImage: `url(${bgfooter})` }}>
-                <a href="#" className="social-icon hover:opacity-80 transition flex flex-row gap-3 font-bold text-[#4F5D2F]">
+        <div
+        className="w-full flex flex-col items-center justify-end gap-10
+                    md:flex-row md:items-end md:justify-around
+                    bg-cover bg-center bg-no-repeat
+                    h-auto min-h-[420px] md:h-screen
+                    px-6 md:px-20 pt-16 pb-6 md:pb-10"
+        style={{ backgroundImage: `url(${bgfooter})` }}
+        >
+            <SocialLinks
+                className="w-8 h-8 text-[#4F5D2F]"
+                wrapperClassName="flex md:hidden flex-row gap-14"
+                />
+
+            <a href="#" className="hidden md:flex social-icon hover:opacity-80 transition flex-row gap-3 font-bold text-[#4F5D2F]">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="512" 
@@ -55,7 +68,7 @@ export default function Footer() {
             </svg>
             <span className="pt-2">@Bloom_Up</span>
             </a>
-            <a href="#" className="social-icon hover:opacity-80 transition flex flex-row gap-3 font-bold text-[#4F5D2F]">
+            <a href="#" className="hidden md:flex social-icon hover:opacity-80 transition flex-row gap-3 font-bold text-[#4F5D2F]">
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="512" 
@@ -129,7 +142,7 @@ export default function Footer() {
             </svg>
             <span className="pt-2">@BloomUp_officiel</span>
             </a>
-            <a href="#" className="social-icon hover:opacity-80 transition flex flex-row gap-3 font-bold text-[#4F5D2F]">
+            <a href="#" className="hidden md:flex social-icon hover:opacity-80 transition flex-row gap-3 font-bold text-[#4F5D2F]">
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="512" 
@@ -153,7 +166,6 @@ export default function Footer() {
             </svg>
             <span className="pt-2">@BloomUp</span>
             </a>
-            
         </div>
     )
 }

@@ -1,4 +1,6 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
+import HabitIcon from "./HabitIcon";
+
 const MyHabitCard = ({ habit, onCheckIn, onDelete }) => {
   const lastCheckInDate = habit.lastCheckIn;
   const today = new Date().toISOString().slice(0, 10);
@@ -9,13 +11,18 @@ const MyHabitCard = ({ habit, onCheckIn, onDelete }) => {
   const [seconds, setSeconds] = useState(0);
   const intervalRef = useRef(null);
 
+  useEffect(() => {
+  return () => {
+    clearInterval(intervalRef.current);
+  };
+}, []);
   const toggleTimer = useCallback(() => {
     if (!timerActive) {
-      intervalRef.current = setInterval(() => setSeconds(s => s + 1), 1000);
+      intervalRef.current = setInterval(() => setSeconds((s) => s + 1), 1000);
     } else {
       clearInterval(intervalRef.current);
     }
-    setTimerActive(prev => !prev);
+    setTimerActive((prev) => !prev);
   }, [timerActive]);
 
   const minutes = Math.floor(seconds / 60).toString().padStart(2, "0");
@@ -27,34 +34,41 @@ const MyHabitCard = ({ habit, onCheckIn, onDelete }) => {
       <button
         onClick={() => onDelete(habit.id)}
         className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#BB8588] text-white text-xs font-bold flex items-center justify-center shadow-md hover:bg-[#a06060] transition-all z-10"
-        aria-label="Delete habit">
+        aria-label="Delete habit"
+      >
         ✕
       </button>
-      <div className={`absolute top-4 right-4 flex items-center gap-1 rounded-full px-3 py-1 ${
-        isToday ? "bg-[#dcefd0]" : isBroken ? "bg-[#f5dcdc]" : "bg-[#e8e6e0]"
-      }`}>
+
+      <div className="hidden md:flex absolute top-4 right-4 items-center gap-1 rounded-full px-3 py-1">
         <span className="text-sm">{isToday ? "🌿" : isBroken ? "💔" : "⏳"}</span>
-        <span className={`text-xs font-bold ${
-          isToday ? "text-[#4F5D2F]" : isBroken ? "text-[#BB8588]" : "text-[#8a8a80]"
-        }`}>
+        <span className={`text-xs font-bold ${isToday ? "text-[#4F5D2F]" : isBroken ? "text-[#BB8588]" : "text-[#8a8a80]"}`}>
           {habit.streak || 0} day streak
         </span>
       </div>
 
-      <span className="text-3xl">{habit.icon || "🌱"}</span>
-      <h3 className="habit-card-title">{habit.title}</h3>
-      <p className="text-sm text-[#7A8F4D]">{habit.duration} {habit.unit} · {habit.days?.join(", ")}</p>
+      <div className="flex items-center gap-3">
+        <HabitIcon icon={habit.icon} title={habit.title} className="text-2xl md:text-3xl flex-shrink-0 w-8 h-8 md:w-10 md:h-10 object-contain" />
+        <h3 className="habit-card-title truncate text-base md:text-lg">{habit.title}</h3>
+        <div className={`md:hidden flex items-center gap-1 rounded-full px-2 py-0.5 ml-auto flex-shrink-0 ${isToday ? "bg-[#dcefd0]" : isBroken ? "bg-[#f5dcdc]" : "bg-[#e8e6e0]"}`}>
+          <span className="text-xs">{isToday ? "🌿" : isBroken ? "💔" : "⏳"}</span>
+          <span className={`text-[10px] font-bold ${isToday ? "text-[#4F5D2F]" : isBroken ? "text-[#BB8588]" : "text-[#8a8a80]"}`}>
+            {habit.streak || 0}
+          </span>
+        </div>
+      </div>
 
-      <div className="flex items-center gap-3 mt-1">
-        <span className="font-mono text-lg font-bold text-[#4F5D2F]">{formatTime}</span>
+      <p className="text-xs md:text-sm text-[#7A8F4D]">{habit.duration} {habit.unit} · {habit.days?.join(", ")}</p>
+
+      <div className="flex items-center gap-2 md:gap-3">
+        <span className="font-mono text-base md:text-lg font-bold text-[#4F5D2F]">{formatTime}</span>
         <button
           onClick={toggleTimer}
-          className={`px-4 py-1 rounded-full text-sm font-bold transition-all ${timerActive ? "bg-[#BB8588] text-white" : "bg-[#7A8F4D] text-white"}`}
+          className={`px-3 md:px-4 py-1 rounded-full text-xs md:text-sm font-bold transition-all ${timerActive ? "bg-[#BB8588] text-white" : "bg-[#7A8F4D] text-white"}`}
         >
           {timerActive ? "Pause" : "Start"}
         </button>
       </div>
- 
+
       <button
         className={`button-1 ${isToday ? "bg-[#7A8F4D] text-white border-[#7A8F4D]" : ""}`}
         onClick={() => {

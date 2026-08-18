@@ -15,8 +15,8 @@ const Landing = () => {
           <img src={logo2} alt="BloomUp Logo" className="w-10 h-10" />
           <h2 className="text-2xl font-bold font-title text-[#4F5D2F] pb-2">BloomUp</h2>
       </div>
-      <div className="flex flex-row min-h-screen">
-          <div className="flex flex-col gap-5 w-[50vw] min-h-screen items-center justify-center">
+      <div className="flex flex-col md:flex-row md:min-h-screen">
+          <div className="flex flex-col gap-5 w-full md:w-1/2 items-center justify-center py-20">
             <h1 className="text-5xl font-title text-[#BB8588] font-bold leading-relaxed">
               Every little <span className="text-[#A3A380]">HABIT</span> is a seed,
             <br/> Plant yours today.</h1>

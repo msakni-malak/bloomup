@@ -5,7 +5,7 @@
       "title": "Morning Meditation",
       "duration": 10,
       "unit": "min",
-      "icon": "🧘",
+      "icon": "emoji1.svg",
       "category": "Wellness"
     },
     {
@@ -13,7 +13,7 @@
       "title": "Read a Book",
       "duration": 30,
       "unit": "min",
-      "icon": "📚",
+      "icon": "emoji2.svg",
       "category": "Learning"
     },
     {
@@ -21,7 +21,7 @@
       "title": "Evening Walk",
       "duration": 20,
       "unit": "min",
-      "icon": "🚶",
+      "icon": "emoji3.svg",
       "category": "Health"
     },
     {
@@ -29,7 +29,7 @@
       "title": "Journaling",
       "duration": 15,
       "unit": "min",
-      "icon": "📝",
+      "icon": "emoji4.svg",
       "category": "Mindfulness"
     },
     {
@@ -37,7 +37,7 @@
       "title": "Stretching",
       "duration": 10,
       "unit": "min",
-      "icon": "🌿",
+      "icon": "emoji3.svg",
       "category": "Health"
     },
     {
@@ -45,7 +45,7 @@
       "title": "Learn a Language",
       "duration": 20,
       "unit": "min",
-      "icon": "🌍",
+      "icon": "emoji2.svg",
       "category": "Learning"
     }
   ],
@@ -53,7 +53,7 @@
     {
       "id": "c52e",
       "title": "Morning Meditation",
-      "icon": "🧘",
+      "icon": "emoji1.svg",
       "duration": 10,
       "unit": "min",
       "days": [
@@ -67,9 +67,68 @@
       ],
       "streak": 1,
       "userId": "56b7",
-      "lastCheckIn": "2026-07-25",
+      "lastCheckIn": "2026-08-18",
       "previousStreak": 1,
-      "previousLastCheckIn": "2026-07-18"
+      "previousLastCheckIn": "2026-08-09"
+    },
+    {
+      "id": "aef3",
+      "title": "Read a Book",
+      "icon": "emoji2.svg",
+      "duration": 30,
+      "unit": "min",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "streak": 1,
+      "userId": "56b7",
+      "lastCheckIn": "2026-08-18",
+      "previousStreak": 1,
+      "previousLastCheckIn": "2026-08-16"
+    },
+    {
+      "id": "8a90",
+      "title": "Evening Walk",
+      "icon": "emoji3.svg",
+      "duration": 20,
+      "unit": "min",
+      "days": [
+        "Sun",
+        "Sat",
+        "Fri"
+      ],
+      "streak": 1,
+      "userId": "56b7",
+      "lastCheckIn": "2026-08-18",
+      "previousStreak": 1,
+      "previousLastCheckIn": "2026-08-09"
+    },
+    {
+      "id": "2950",
+      "title": "Journaling",
+      "icon": "emoji4.svg",
+      "duration": 15,
+      "unit": "min",
+      "days": [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "streak": 1,
+      "userId": "56b7",
+      "lastCheckIn": "2026-08-18",
+      "previousStreak": 1,
+      "previousLastCheckIn": "2026-08-09"
     }
   ],
   "goals": [
@@ -88,12 +147,12 @@
         {
           "id": 1784403616594,
           "title": "25% of the work",
-          "done": false
+          "done": true
         },
         {
           "id": 1784403628907,
           "title": "50% of the work",
-          "done": false
+          "done": true
         },
         {
           "id": 1784403638975,
@@ -114,7 +173,83 @@
       "category": "Personal",
       "deadline": "2027-07-19",
       "description": "read a book/month",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": 1785965823359,
+          "title": "a",
+          "done": true
+        },
+        {
+          "id": 1785965827636,
+          "title": "b",
+          "done": true
+        },
+        {
+          "id": 1785965830479,
+          "title": "c",
+          "done": true
+        }
+      ],
+      "userId": "56b7"
+    },
+    {
+      "id": "9be1",
+      "title": "Learn React Deeply",
+      "category": "",
+      "deadline": "2026-09-01",
+      "description": "Master hooks, context, and build a production-ready app from scratch",
+      "tasks": [
+        {
+          "id": 1787013910314,
+          "title": "a",
+          "done": true
+        },
+        {
+          "id": 1787013911938,
+          "title": "b",
+          "done": true
+        },
+        {
+          "id": 1787013913786,
+          "title": "c",
+          "done": true
+        },
+        {
+          "id": 1787013914679,
+          "title": "d",
+          "done": true
+        },
+        {
+          "id": 1787014004142,
+          "title": "e",
+          "done": false
+        }
+      ],
+      "userId": "56b7"
+    },
+    {
+      "id": "bf23",
+      "title": "Run a 5K",
+      "category": "Health",
+      "deadline": "2026-11-01",
+      "description": "Build up endurance with progressive weekly runs",
+      "tasks": [
+        {
+          "id": 1787013972058,
+          "title": "a",
+          "done": true
+        },
+        {
+          "id": 1787013974096,
+          "title": "b",
+          "done": false
+        },
+        {
+          "id": 1787013977412,
+          "title": "c",
+          "done": false
+        }
+      ],
       "userId": "56b7"
     }
   ],

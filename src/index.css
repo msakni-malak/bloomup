@@ -5,7 +5,7 @@
 }
 @layer components {
   .nav-link {
-    @apply relative py-2 px-10 rounded transition-all duration-300;
+    @apply relative py-2 px-10 gap-2 rounded transition-all duration-300;
   }
 
   .nav-link::after {
@@ -31,12 +31,12 @@
   .input-box {
     @apply p-4 rounded-2xl border-2 border-[#B8B396] bg-[#EFEBCE] focus:outline-none focus:ring-2 focus:ring-[#7A8F4D] placeholder-[#7A8F4D]/50;
   }
-  .card {
-    @apply bg-[#EFEBCE] p-8 rounded-3xl shadow-lg text-center;
-  }
-  .crad-group {
-    @apply max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-20;
-  }
+.card {
+  @apply bg-[#EFEBCE] p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-lg text-center;
+}
+.card-title {
+  @apply text-2xl font-bold text-[#4F5D2F] mb-4;
+}
   .card-title {
     @apply text-2xl font-bold text-[#4F5D2F] mb-4;
   }
@@ -50,9 +50,16 @@
     @apply mt-auto w-full py-2 rounded-2xl bg-[#EFE8CE] border-2 border-[#7A8F4D] text-[#4F5D2F] font-bold text-sm hover:bg-[#7A8F4D] hover:text-white transition-all duration-200;
   }
   .button-2 {
-    @apply bg-[#7A8F4D] text-[#EFE8CE] rounded-2xl hover:bg-[#5f6f3a] transition font-semibold py-4;
+    @apply px-4 py-2 sm:px-6 sm:py-3 bg-[#4F5D2F] text-[#EFEBCE] rounded-2xl font-bold hover:bg-[#3a4422] transition-all shadow-md text-sm sm:text-base;
   }
   .habit-card-title {
     @apply text-lg font-bold text-[#4F5D2F] font-title;
   }
+}
+.carousel-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
 }

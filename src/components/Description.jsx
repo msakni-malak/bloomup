@@ -4,6 +4,8 @@ import card3 from "../assets/photoCard3.png";
 import card4 from "../assets/photoCard4.png";
 import card5 from "../assets/photoCard5.png";
 import card6 from "../assets/photoCard6.png";
+import CardCarousel from "./CardCarousel";
+
 export default function Description() {
     return(
         <div className="min-h-screen bg-[#EFE8CE] py-20 px-10">
@@ -26,9 +28,10 @@ export default function Description() {
                 one small action at a time.
                 </p>
             </div>
-        <div className="crad-group">
+
+        <CardCarousel>
             <div className="card">
-                <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+                <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 flex items-center justify-center">
                     <img src={card1} alt="BloomUp Logo" />
                 </div>
                 <h3 className="card-title">
@@ -40,7 +43,7 @@ export default function Description() {
                 </p>
             </div>
             <div className="card">
-                <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+                <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 flex items-center justify-center">
                     <img src={card2} alt="BloomUp Logo" />
                 </div>
                 <h3 className="card-title">
@@ -52,7 +55,7 @@ export default function Description() {
                 </p>
             </div>
             <div className="card">
-                <div className="w-40 h-40 mx-auto mb-6 flex items-center justify-center">
+                <div className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 flex items-center justify-center">
                     <img src={card3} alt="BloomUp Logo" />
                 </div>
                 <h3 className="card-title">
@@ -63,13 +66,15 @@ export default function Description() {
                 See your growth over time and celebrate how far your garden has bloomed!
                 </p>
             </div>
-        </div>
+        </CardCarousel>
+
         <h2 className="text-4xl font-title font-bold text-[#4F5D2F] text-center mb-12">
             Gardeners Use BloomUp to Flourish In
         </h2>
-        <div className="crad-group">
+
+        <CardCarousel>
             <div className="card">
-                <div className="w-40 h-40 mx-auto mb-6 flex items-center justify-center">
+                <div className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 flex items-center justify-center">
                     <img src={card4} alt="BloomUp Logo" />
                 </div>
                 <h3 className="card-title">
@@ -82,7 +87,7 @@ export default function Description() {
             </div>
 
             <div className="card">
-                <div className="w-40 h-40 mx-auto mb-6 flex items-center justify-center">
+                <div className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 flex items-center justify-center">
                     <img src={card5} alt="BloomUp Logo" />
                 </div>
                 <h3 className="card-title">
@@ -95,7 +100,7 @@ export default function Description() {
             </div>
 
             <div className="card">
-                <div className="w-40 h-40 mx-auto mb-6 flex items-center justify-center">
+                <div className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 flex items-center justify-center">
                     <img src={card6} alt="BloomUp Logo" />
                 </div>
                 <h3 className="card-title">
@@ -106,7 +111,7 @@ export default function Description() {
                 Work on creative projects, practice self-care, or pursue any dream — it's your choice!
                 </p>
             </div>
-        </div>
+        </CardCarousel>
     </div>
     )
 }
